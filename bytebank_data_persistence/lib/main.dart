@@ -1,4 +1,7 @@
 // ignore: unused_import
+import 'package:bytebank_data_persistence/database/app_database.dart';
+import 'package:bytebank_data_persistence/models/contact.dart';
+// ignore: unused_import
 import 'package:bytebank_data_persistence/screens/contact_form.dart';
 // ignore: unused_import
 import 'package:bytebank_data_persistence/screens/contacts_list.dart';
@@ -9,6 +12,9 @@ import 'screens/dashboard.dart';
 
 void main() {
   runApp(ByteBankApp());
+  save(Contact(0, 'alex', 1000)).then((id) {
+    findAll().then((contacts) => debugPrint(contacts.toString()));
+  });
 }
 
 class ByteBankApp extends StatelessWidget {
